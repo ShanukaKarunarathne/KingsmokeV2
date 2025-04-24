@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Kingsmoke</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .login-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .login-logo img {
+            height: 60px;
+        }
+        
+        .login-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .login-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .login-form button:hover {
+            background-color: #45a049;
+        }
+        
+        .error-message {
+            color: #ff4d4d;
+            text-align: center;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">
+            <img src="images/logo.png" alt="Kingsmoke Logo">
+        </div>
+        <h2 class="login-title">Kingsmoke Login</h2>
+        
+        <div id="error-message" class="error-message">
+            Incorrect password. Please try again.
+        </div>
+        
+        <form id="login-form" class="login-form">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const correctPassword = 'kingsmoke2023'; // Change this to your desired password
+            
+            if (password === correctPassword) {
+                // Set a flag in localStorage to indicate the user is logged in
+                localStorage.setItem('isLoggedIn', 'true');
+                
+                // Redirect to the homepage
+                window.location.href = 'index.html';
+            } else {
+                // Show error message
+                document.getElementById('error-message').style.display = 'block';
+                
+                // Clear the password field
+                document.getElementById('password').value = '';
+            }
+        });
+    </script>
+</body>
+</html>

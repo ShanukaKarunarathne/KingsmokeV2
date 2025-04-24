@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - 👑 KINGSMOKE 👑</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/auth.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="brand">
+                <img src="images/logo.png" alt="Kingsmoke Logo" class="logo">
+                <h1>Kingsmoke</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart <span id="cart-count">0</span></a></li>
+                    <li><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="success">
+            <div class="container">
+                <h2>Order Confirmed!</h2>
+                <p>Thank you for your purchase. Your order has been received and is being processed.</p>
+                <p>We've sent a confirmation email with your order details.</p>
+                <a href="products.html" class="btn">Continue Shopping</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 👑 KINGSMOKE 👑. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Clear cart after successful order
+        localStorage.removeItem('cart');
+        updateCartCount();
+    </script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Add event listener to logout button
+        document.getElementById('logout-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            logout();
+        });
+    </script>
+    
+</body>
+</html>

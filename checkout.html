@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - 👑 KINGSMOKE 👑</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/auth.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="brand">
+                <img src="images/logo.png" alt="Kingsmoke Logo" class="logo">
+                <h1>Kingsmoke</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart <span id="cart-count">0</span></a></li>
+                    <li><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="checkout">
+            <div class="container">
+                <h2>Checkout</h2>
+                <div class="checkout-container">
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        <div id="checkout-items">
+                            <!-- Order items will be loaded here via JavaScript -->
+                        </div>
+                        <p>Total: Rs.<span id="checkout-total">0.00</span></p>
+                    </div>
+                    
+                    <div class="customer-info">
+                        <h3>Customer Information</h3>
+                        <form id="checkout-form" name="checkout" method="POST" data-netlify="true">
+                            <input type="hidden" name="form-name" value="checkout">
+                            <input type="hidden" id="order-details" name="order-details" value="">
+                            
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" name="address" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="nearest-city">Nearest City</label>
+                                <input type="text" id="nearest-city" name="nearest-city" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="district">District</label>
+                                <input type="text" id="district" name="district" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-number-1">Contact Number 01</label>
+                                <input type="tel" id="contact-number-1" name="contact-number-1" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-number-2">Contact Number 02</label>
+                                <input type="tel" id="contact-number-2" name="contact-number-2">
+                            </div>
+                            
+                            <button type="submit" class="btn">Place Order</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 👑 KINGSMOKE 👑. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="js/auth.js"></script>
+<script>
+    // Add event listener to logout button
+    document.getElementById('logout-btn').addEventListener('click', function(event) {
+        event.preventDefault();
+        logout();
+    });
+</script>
+
+</body>
+</html>

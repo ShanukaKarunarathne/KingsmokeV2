@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingsmoke - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="js/auth.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="brand">
+                <img src="images/logo.png" alt="Kingsmoke Logo" class="logo">
+                <h1>Kingsmoke</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart <span id="cart-count">0</span></a></li>
+                    <li><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Welcome to Kingsmoke</h2>
+                <p>Discover our amazing products</p>
+                <a href="products.html" class="btn">Shop Now</a>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <div class="container">
+                <h2>Featured Products</h2>
+                <div class="products-grid" id="featured-products">
+                    <!-- Products will be loaded here via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Kingsmoke. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Add event listener to logout button
+        document.getElementById('logout-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            logout();
+        });
+        
+        // Helper function to format currency (if not already in main.js)
+        function formatCurrency(amount) {
+            return `Rs. ${amount.toFixed(2)}`;
+        }
+        
+        // Update any currency displays on this page
+        document.addEventListener('DOMContentLoaded', function() {
+            // This ensures auth check runs first, then the page initialization
+            // Update cart count
+            updateCartCount();
+            
+            // Display featured products
+            if (document.getElementById('featured-products')) {
+                displayFeaturedProducts();
+            }
+        });
+    </script>
+</body>
+</html>
